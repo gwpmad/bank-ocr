@@ -1,0 +1,13 @@
+{
+  "name": "BankOCR",
+  "version": "1.0.0",
+  "description": "Coding Dojo Kata",
+  "main": "index.js",
+  "repository": "https://github.com/gwpmad/bank-ocr.git",
+  "author": "gwpmad",
+  "license": "MIT",
+  "dependencies": {
+    "require-all": "^2.2.0",
+    "tape": "^4.6.3"
+  }
+}
