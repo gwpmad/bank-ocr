@@ -1,8 +1,8 @@
 const test = require('tape');
-const bankOcr = require('../src/bankOcr');
-const data = require('require-all')(`${__dirname}/data`);
+const bankOcr = require('../../src/bankOcr');
+const data = require('require-all')(`${__dirname}/../data`);
 
-test('BankOCR use case 1', (t) => {
+test.skip('BankOCR use case one', (t) => {
 	t.equal(bankOcr(data.useCaseOne[0]), 000000000);
 	t.equal(bankOcr(data.useCaseOne[1]), 111111111);
 	t.equal(bankOcr(data.useCaseOne[2]), 222222222);
@@ -15,5 +15,5 @@ test('BankOCR use case 1', (t) => {
 	t.equal(bankOcr(data.useCaseOne[9]), 999999999);
 	t.equal(bankOcr(data.useCaseOne[10]), 123456789);
 
-	t.end
+	t.end();
 });

@@ -9,5 +9,8 @@
   "dependencies": {
     "require-all": "^2.2.0",
     "tape": "^4.6.3"
+  },
+  "scripts": {
+    "test": "tape test/**/*.js"
   }
 }
