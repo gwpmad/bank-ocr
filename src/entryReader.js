@@ -3,7 +3,6 @@ const { compose, map, range, split, join, reduce } = require('ramda');
 
 const DIGITS_PER_ENTRY = 9;
 const DIGIT_WIDTH = 3;
-const logr = (data) => console.log('data',data) || data;
 
 const digitsPerEntryRange = range(0, DIGITS_PER_ENTRY);
 
@@ -24,7 +23,6 @@ const assembleDigits = lines => map(i => getPartsOfDigit(i, lines), digitsPerEnt
 const joinByNewline = digitParts => join('\n', digitParts);
 
 const splitEntryIntoDigitDrawings = (entry) => compose(
-	logr,
 	map(joinByNewline),
 	assembleDigits,
 	map(splitLineIntoDigitParts),
