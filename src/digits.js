@@ -1,70 +1,70 @@
 module.exports = [
 	{
 		value: 0,
-		representation:
+		drawing:
 ` _ 
 | |
 |_|`
 	},
 	{
 		value: 1,
-		representation:
+		drawing:
 `   
   |
   |`
 	},
 	{
 		value: 2,
-		representation:
+		drawing:
 ` _ 
  _|
 |_ `
 	},
 	{
 		value: 3,
-		representation:
+		drawing:
 ` _ 
  _|
  _|`
 	},
 	{
 		value: 4,
-		representation:
+		drawing:
 `   
 |_|
   |`
 	},
 	{
 		value: 5,
-		representation:
+		drawing:
 ` _ 
 |_ 
  _|`	
 	},
 	{
 		value: 6,
-		representation:
+		drawing:
 ` _ 
 |_ 
 |_|`
 	},
 	{
 		value: 7,
-		representation:
-`_ 
- |
- |`
+		drawing:
+` _ 
+  |
+  |`
 	},
 	{
 		value: 8,
-		representation:
+		drawing:
 ` _ 
 |_|
 |_|`
 	},
 	{
 		value: 9,
-		representation:
+		drawing:
 ` _ 
 |_|
  _|`

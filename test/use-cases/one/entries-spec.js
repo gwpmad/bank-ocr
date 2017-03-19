@@ -1,6 +1,6 @@
 const test = require('tape');
-const bankOcr = require('../../src/bankOcr');
-const data = require('require-all')(`${__dirname}/../data`);
+const bankOcr = require('../../../src/bankOcr');
+const data = require(`../../data/use-case-one/entries`);
 
 test.skip('BankOCR use case one', (t) => {
 	t.equal(bankOcr(data.useCaseOne[0]), 000000000);

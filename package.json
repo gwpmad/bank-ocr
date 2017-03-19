@@ -7,8 +7,8 @@
   "author": "gwpmad",
   "license": "MIT",
   "dependencies": {
+    "minimist": "^1.2.0",
     "ramda": "^0.23.0",
-    "require-all": "^2.2.0",
     "tape": "^4.6.3"
   },
   "scripts": {

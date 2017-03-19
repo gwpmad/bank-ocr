@@ -123,7 +123,7 @@ minimatch@^3.0.2:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimist@~1.2.0:
+minimist@^1.2.0, minimist@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
 
@@ -148,10 +148,6 @@ path-is-absolute@^1.0.0:
 ramda@^0.23.0:
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
-
-require-all@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/require-all/-/require-all-2.2.0.tgz#b4420c233ac0282d0ff49b277fb880a8b5de0894"
 
 resolve@~1.1.7:
   version "1.1.7"
