@@ -7,6 +7,7 @@
   "author": "gwpmad",
   "license": "MIT",
   "dependencies": {
+    "faucet": "^0.0.1",
     "minimist": "^1.2.0",
     "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
@@ -14,6 +15,8 @@
   },
   "scripts": {
     "test": "tape 'test/**/*.js'",
-    "watch-test": "nodemon -w src/ -w test/ -x yarn test"
+    "faucet": "yarn test | node_modules/.bin/faucet",
+    "watch-test": "nodemon -w src/ -w test/ -x yarn test",
+    "watch-faucet": "nodemon -w src/ -w test/ -x yarn test | node_modules/.bin/faucet"
   }
 }
