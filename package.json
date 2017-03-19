@@ -8,10 +8,12 @@
   "license": "MIT",
   "dependencies": {
     "minimist": "^1.2.0",
+    "nodemon": "^1.11.0",
     "ramda": "^0.23.0",
     "tape": "^4.6.3"
   },
   "scripts": {
-    "test": "tape test/**/*.js"
+    "test": "tape 'test/**/*.js'",
+    "watch-test": "nodemon -w src/ -w test/ -x yarn test"
   }
 }

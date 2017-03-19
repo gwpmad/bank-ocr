@@ -1,4 +1,4 @@
-const stripOpeningNewline = require('../helpers/stripOpeningNewline');
+const stripOpeningNewline = require('../../helpers/stripOpeningNewline');
 
 const outputs = 
 [
@@ -28,7 +28,7 @@ const outputs =
 ,
                                
 `
-                  
+                           
 |_||_||_||_||_||_||_||_||_|
   |  |  |  |  |  |  |  |  |
                            `
@@ -64,7 +64,7 @@ const outputs =
                            `
 ,
 `
-    _  _     _  _  _  _  _
+    _  _     _  _  _  _  _ 
   | _| _||_||_ |_   ||_||_|
   ||_  _|  | _||_|  ||_| _| 
                            `

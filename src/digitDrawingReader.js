@@ -1,8 +1,8 @@
-const digits = require('./digits');
+const digitDrawings = require('./digitDrawings');
 const { compose } = require('ramda');
 
 const findMatch = (drawing) =>
-	digits.find(digit => digit.drawing === drawing);
+	digitDrawings.find(digitDrawing => digitDrawing.drawing === drawing);
 
 const extractValue = ((digit = {}) => digit.value);
 

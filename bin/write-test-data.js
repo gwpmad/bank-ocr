@@ -1,45 +1,51 @@
-const digits = require('../src/digits');
+const digitDrawings = require('../src/digitDrawings');
 const fs = require('fs');
 const args = require('minimist')(process.argv.slice(2));
-const { compose, map, join, times, split } = require('ramda');
+const { compose, map, join, times, split, range, forEach } = require('ramda');
 
 const DIGITS_PER_ENTRY = 9;
+const DEST_FILENAME = 'test-document.txt';
 
 const useCase = args._[0];
 const number = args._[1];
-const writePath = `${__dirname}/../test/data/use-case-${useCase}/test-data.txt`;
+const writePath = `${__dirname}/../test/data/use-case-${useCase}/${DEST_FILENAME}`;
 
 const getRandomNumber = () => Math.floor(Math.random() * 10);
 
-const manual = 'Arguments: use case (one, two, three, four) [number of lines to write]';
+const manual = 'Arguments: use case (one, two, three or four) [number of lines to write]';
 
 const writeNEntries = (n = 500) => {
-	const accountNumberList = [];
-	const createAccountNumber = () => {
-		const accountNumber = Array.from({ length: 9 }, getRandomNumber).join('');
-		accountNumberList.push(accountNumber);
-		return accountNumber;
-	};
-	const writeStream = fs.createWriteStream(writePath); // why not async
-	writeStream.on('error', (err) => console.log(`Write failed: ${err}`));
-	const writeSingleEntry = compose(writeStream.write.bind(writeStream),createEntry, createAccountNumber);
-	times(writeSingleEntry, n);
-	writeStream.end(() => console.log(`Writing is now finished, account numbers:\n${accountNumberList.join('\n')}`));
+	// how could i do this better
+	const createAccountNumber = () => Array.from({ length: 9 }, getRandomNumber);
+	const logAccountNumber = (accountNumber) => console.log(`${accountNumber}`) || accountNumber;
+	const generateRandomEntry = compose(accountNumberToEntry, logAccountNumber, join(''), createAccountNumber);
+
+	const entries = compose(join('\n'), map(generateRandomEntry))(range(0, n));
+	fs.writeFile(writePath, entries, (err) => {
+		if (err) {
+			console.log(`Write failed: ${err}`)
+		} else {
+			console.log('Writing is now finished')
+		}
+	});
 };
 
-const createEntry = (accountNumber) => {
-	const getDrawing = num => digits[num].drawing;
-	const splitDrawingIntoLines = drawing => drawing.split('\n');
-	const createEntryLines = drawings => [0, 1, 2].map(i =>
-		drawings.map(drawing => drawing[i]).join('') + '\n');
-	const addBlankLine = lines => lines.concat(' '.repeat(DIGITS_PER_ENTRY * 3) + '\n');
+const accountNumberToEntry = (accountNumber) => {
+	const getDigit = number => digitDrawings[number].drawing;
+	const splitDigitIntoLines = digit => digit.split('\n');
+	const getDigitLineByNumber = i => digit => digit[i]
+	const arrayForEachLineOfEntry = digitLines => range(0, 3).map(i =>
+		digitLines.map(getDigitLineByNumber(i)));
+	const joinEntryLineArray = chars => join('', chars);
+	const addBlankLine = lines => lines.concat(' '.repeat(DIGITS_PER_ENTRY * 3));
 
 	return compose(
-		join(''),
+		join('\n'),
 		addBlankLine,
-		createEntryLines,
-		map(splitDrawingIntoLines),
-		map(getDrawing),
+		map(joinEntryLineArray),
+		arrayForEachLineOfEntry,
+		map(splitDigitIntoLines),
+		map(getDigit),
 		split('')
 	)(accountNumber);
 };
