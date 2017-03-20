@@ -1,4 +1,3 @@
-const digitDrawingReader = require('./digitDrawingReader');
 const { compose, map, range, split, join, reduce } = require('ramda');
 
 const DIGITS_PER_ENTRY = 9;
@@ -22,17 +21,10 @@ const assembleDigits = lines => map(i => getPartsOfDigit(i, lines), digitsPerEnt
 
 const joinByNewline = digitParts => join('\n', digitParts);
 
-const splitEntryIntoDigitDrawings = (entry) => compose(
+module.exports = (entry) => compose(
 	map(joinByNewline),
 	assembleDigits,
 	map(splitLineIntoDigitParts),
 	split('\n'),
 	stripBlankLine
 )(entry);
-
-module.exports = compose(
-	Number,
-	join(''),
-	map(digitDrawingReader),
-	splitEntryIntoDigitDrawings
-);
