@@ -17,7 +17,7 @@ const manual = 'Arguments: use case (one, two, three or four) [number of lines t
 const writeNEntries = (n = 500) => {
 	// how could i do this better
 	const createAccountNumber = () => Array.from({ length: 9 }, getRandomNumber);
-	const logAccountNumber = (accountNumber) => console.log(`${accountNumber}`) || accountNumber;
+	const logAccountNumber = (accountNumber) => process.stdout.write(`${accountNumber}\n`) && accountNumber;
 	const generateRandomEntry = compose(accountNumberToEntry, logAccountNumber, join(''), createAccountNumber);
 
 	const entries = compose(join('\n'), map(generateRandomEntry))(range(0, n));
