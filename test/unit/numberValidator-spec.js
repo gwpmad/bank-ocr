@@ -1,10 +1,10 @@
 const numberValidator = require('../../src/numberValidator');
 const test = require('tape');
 
-const validAccountNumber = { value: '345882865' };
-const invalidAccountNumber = { value: '575326790' };
-const tooShortAccountNumber = { value: '57532679' };
-const tooLongAccountNumber = { value: '5753267901' };
+const validAccountNumber = '345882865';
+const invalidAccountNumber = '575326790';
+const tooShortAccountNumber = '57532679';
+const tooLongAccountNumber = '5753267901';
 
 test('Account number validator', (t) => {
 	t.plan(4);
