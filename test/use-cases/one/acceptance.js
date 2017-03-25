@@ -16,7 +16,7 @@ const writeTestData = (cb) => exec(`node bin/write-test-data.js one ${NUMBER_OF_
 		return;
 	}
 
-const addToWiderObject = (parsedEntry) => ({ value: parsedEntry });
+const addToWiderObject = parsedEntry => ({ value: parsedEntry });
 
 	compose(cb, map(addToWiderObject), stripLastLine)(stdout);
 });
