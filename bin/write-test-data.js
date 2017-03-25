@@ -12,7 +12,7 @@ const writePath = `${__dirname}/../test/data/use-case-${useCase}/${args.fileName
 
 const getRandomNumber = () => Math.floor(Math.random() * 10);
 
-const manual = `Arguments: use case (one, two, three or four) [number of lines to write] [manual entries]
+const manual = `Arguments: use case (one, two, three or four) [number of entries to write] [your manual entries]
 [-man] [-m] show manual
 [-fileName] set custom fileName
 `;
