@@ -5,7 +5,7 @@ The codebase is heavily unit tested, with a small number of acceptance tests for
 
 To generate a document in the digit style described within the kata:
 ```
-yarn test-data use case [number of entries to write] [your manual entries]
+yarn test-data [use case] [number of entries to write] [your manual entries]
 ```
 Sub in your intended use case (one, two, three or four) for 'one'; optionally specify the number of entries to write; and add any specific nine digit account numbers, comma-delimited, that you'd like to include in the file. For instance:
 ```
