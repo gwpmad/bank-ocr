@@ -3,6 +3,8 @@ const testEntries = require(`../data/use-case-one/test-entries`);
 const test = require('tape');
 
 test('Read a single entry', (t) => {
+	t.plan(11);
+
 	t.deepEqual(readEntry(testEntries[0]), '000000000');
 	t.deepEqual(readEntry(testEntries[1]), '111111111');
 	t.deepEqual(readEntry(testEntries[2]), '222222222');
@@ -14,6 +16,4 @@ test('Read a single entry', (t) => {
 	t.deepEqual(readEntry(testEntries[8]), '888888888');
 	t.deepEqual(readEntry(testEntries[9]), '999999999');
 	t.deepEqual(readEntry(testEntries[10]), '123456789');
-
-	t.end();
 });
