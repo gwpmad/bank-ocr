@@ -15,7 +15,6 @@ const getRandomNumber = () => Math.floor(Math.random() * 10);
 const manual = 'Arguments: use case (one, two, three or four) [number of lines to write]';
 
 const writeNEntries = (n = 500) => {
-	// how could i do this better
 	const createAccountNumber = () => Array.from({ length: 9 }, getRandomNumber);
 	const logAccountNumber = (accountNumber) => process.stdout.write(`${accountNumber}\n`) && accountNumber;
 	const generateRandomEntry = compose(accountNumberToEntry, logAccountNumber, join(''), createAccountNumber);

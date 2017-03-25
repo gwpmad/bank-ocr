@@ -30,3 +30,16 @@ module.exports = (filePath, cb) => {
 // how do callbacks work inside - why are they only called when the info is received
 
 // is it possible to compose asynchronous functions
+
+// function async (){
+
+// 	do async thing
+
+// 	return Promise.resolve(thing)
+// }
+
+// function(value){
+// 	return thing.reverse()
+// }
+
+// value.then(fn)

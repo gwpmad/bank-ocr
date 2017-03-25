@@ -5,7 +5,9 @@ const { compose, map } = require('ramda');
 module.exports = {
 	one(filePathToRead, cb) {
 		return documentSplitter(filePathToRead, (splitDocument) =>
-			compose(cb, map(readEntry))(splitDocument)
+			compose(cb,
+				map(entry => ({ value: readEntry(entry) }))
+			)(splitDocument)
 		);
 	}
 }
