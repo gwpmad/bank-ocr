@@ -7,13 +7,18 @@ To generate a document in the digit style described within the kata:
 ```
 yarn test-data use case one [number of entries to write] [your manual entries]
 ```
-Sub in your intended use case (one, two, three or four) for 'one'; optionally specify the number of entries to write; and add any specific nine digit account numbers, comma-delimited, that you'd like to include in the file. Use the `-man` flag to display all options.
+Sub in your intended use case (one, two, three or four) for 'one'; optionally specify the number of entries to write; and add any specific nine digit account numbers, comma-delimited, that you'd like to include in the file. For instance:
+```
+yarn test-data use case two 500 123456789,987654321
+
+```
+Use the `-man` flag to display all options.
 
 Test commands:
 ```
 yarn test
 yarn watch-test
-yarn faucet _(for pretty test output)_
+yarn faucet (for pretty test output)
 ```
 
 To come:
