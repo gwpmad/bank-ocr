@@ -12,7 +12,7 @@ const writeTestData = (cb) => exec(`node bin/write-test-data.js one ${NUMBER_OF_
 		return;
 	}
 
-	const makePartOfObject = accountNumber => ({ value: accountNumber });
+	const makePartOfObject = accountNumber => ({ value: accountNumber, illegible: false });
 
 	compose(cb, map(makePartOfObject), stripLastLine, split('\n'))(stdout);
 });
