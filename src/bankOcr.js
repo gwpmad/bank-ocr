@@ -3,21 +3,22 @@ const numberValidator = require('./numberValidator');
 const readEntry = require('./readEntry');
 const { compose, map, set } = require('ramda');
 
+const checkIfValid = obj => Object.assign(obj, { valid: numberValidator(obj.value) });
+
 module.exports = {
 	one(filePathToRead, cb) {
 		return documentSplitter(filePathToRead, (splitDocument) =>
 			compose(cb,
-				map(entry => ({ value: readEntry(entry) }))
+				map(readEntry)
 			)(splitDocument)
 		);
 	},
 
-	two(filePathToRead, manualEntrie, cb) {
-		const addValidProperty = obj => Object.assign(obj, { valid: numberValidator(obj.value) });
+	two(filePathToRead, cb) {
 		return documentSplitter(filePathToRead, (splitDocument) =>
 			compose(cb,
-				map(addValidProperty),
-				map(entry => ({ value: readEntry(entry) }))
+				map(checkIfValid),
+				map(readEntry)
 			)(splitDocument)
 		);
 	}

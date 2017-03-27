@@ -9,5 +9,5 @@ test('Digit reader', (t) => {
 		t.equal(digitDrawingReader(digitDrawing.drawing), digitDrawing.value, `recognises digit ${digitDrawing.value} correctly`);
 	});
 
-	t.equal(digitDrawingReader('| --| --'), undefined, 'returns undefined when no match is found')
+	t.equal(digitDrawingReader('| --| --'), '?', 'returns ? when no match is found')
 });
